@@ -1,4 +1,4 @@
-.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3 sync_data_to_minio sync_data_from_minio
+.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3 sync_data_to_minio sync_data_from_minio frontend-install frontend-start frontend-build
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -28,6 +28,11 @@ endif
 requirements: test_environment
 	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+
+## Install Development Python Dependencies
+dev-requirements: test_environment
+	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
+	$(PYTHON_INTERPRETER) -m pip install -r requirements-dev.txt
 
 ## Make Dataset
 data: requirements
@@ -65,6 +70,18 @@ sync_data_to_minio:
 ## Download Data from MinIO
 sync_data_from_minio:
 	MC_HOST_minio=$(MINIO_ENDPOINT) mc cp --recursive minio/$(BUCKET)/data/ data/
+
+## Install Frontend Dependencies
+frontend-install:
+	cd frontend && npm install
+
+## Start Frontend Development Server
+frontend-start:
+	cd frontend && npm start
+
+## Build Frontend for Production
+frontend-build:
+	cd frontend && npm run build
 
 ## Set up python interpreter environment
 create_environment:

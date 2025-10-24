@@ -1,0 +1,26 @@
+# Development Requirements
+# These are additional dependencies needed for development but not production
+
+# Testing
+pytest==8.3.2
+pytest-cov==5.0.0
+
+# Linting
+flake8==7.1.1
+black==24.4.2
+isort==5.13.2
+
+# Development tools
+jupyter==1.0.0
+jupyterlab==4.2.4
+ipython==8.26.0
+
+# Documentation
+sphinx==7.4.7
+sphinx-rtd-theme==2.0.0
+
+# Debugging
+pdbpp==0.10.3
+
+# Include base requirements
+-r requirements.txt

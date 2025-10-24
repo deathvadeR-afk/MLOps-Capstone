@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-The MLOps Capstone Project is an end-to-end machine learning operations pipeline designed for educational purposes, specifically focusing on sentiment analysis of movie reviews. The project follows the *cookiecutter-data-science* template structure and implements a complete MLOps workflow from data ingestion to model deployment and monitoring.
+The MLOps Capstone Project is a modern end-to-end machine learning operations pipeline designed for educational purposes, specifically focusing on sentiment analysis of movie reviews. The project follows the *cookiecutter-data-science* template structure and implements a complete MLOps workflow from data ingestion to model deployment and monitoring.
 
 ## Project Structure and Organization
 
@@ -39,8 +39,8 @@ The project leverages a modern MLOps technology stack:
 - **Containerization**: Docker
 - **CI/CD**: GitHub Actions
 - **Monitoring**: Prometheus and Grafana
-- **Web Framework**: Flask for deployment
-- **Testing**: unittest framework
+- **Web Framework**: Flask (backend) and React (frontend)
+- **Testing**: unittest framework and pytest
 
 ## Core Functionality
 
@@ -74,7 +74,7 @@ The project uses MLflow for comprehensive model management:
 
 The model is deployed through multiple stages:
 
-1. **Flask Application** (`app.py`): A web application that serves predictions through a REST API and includes a simple UI
+1. **Flask Application** (`app.py`): A web application that serves predictions through a REST API
 2. **React Frontend**: A modern user interface that communicates with the Flask backend
 3. **Docker Containerization** (`Dockerfile`): Packages the application for consistent deployment
 4. **Monitoring**: Integrates Prometheus metrics for application monitoring
@@ -125,7 +125,7 @@ The system includes monitoring capabilities:
 The project uses YAML configuration files for managing parameters:
 - `params.yaml`: Defines parameters for data ingestion and feature engineering
 - `config.json`: Contains database connection details
-- Environment variables for sensitive information (DagsHub tokens)
+- Environment variables for sensitive information (DagsHub tokens, MinIO credentials)
 
 ## Testing Strategy
 
@@ -133,6 +133,7 @@ The project includes unit tests for:
 - Model loading and signature verification
 - Flask application endpoints
 - Performance validation against defined thresholds
+- Frontend component functionality
 
 ## Cloud Infrastructure
 
@@ -154,6 +155,7 @@ The project implements security best practices:
 - Environment variables for sensitive credentials
 - Secure connection handling for cloud services
 - Proper error handling to prevent information leakage
+- CORS configuration for frontend-backend communication
 
 ## Conclusion
 
